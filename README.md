@@ -25,4 +25,10 @@
 ### - We created a javascript to fetch user interest using gremlin's query language, it is stored with the name findUserInterests.js
 ### - We created another script findFriendsOfFriends.js, the script generates user-specific recommendations of other users they should follow.
 ### - In the next script findFriendsWithInterests.js, the logic in the code works on generating recommendations for users that aren’t following any users yet
+Authentication
+### - We used amazon cognito service to work on the authentication process, first we created a shell script to create a user pool along with the password policy
+### - Once user pool is created, we work on creating a user pool client in the shell script create-user-pool-client.sh. A user pool client is used to call unauthenticated methods on the user pool, such as register and sign in. The user pool client is used by your backend Node.js application. To register or sign in, a user makes an HTTP POST request to your application containing the relevant properties. Your application uses the user pool client and forwards these properties to your Amazon Cognito user pool. Then, your application returns the proper data or error message.
+### - We created authentication file auth.js, having three core functions - creating cognito user, login function that is used when registered users are authenticating and finally verify token function which verifies an ID token that has been passed up with a request. The ID token given by Amazon Cognito is a JSON Web Token, and the verifyToken function confirms that the token was signed by your trusted source and to identify the user. This function is used in endpoints that require authentication to ensure that the requesting user has access.
+Deployment
+### - 
 
