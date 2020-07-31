@@ -15,4 +15,14 @@
 
 ## Steps performed in the project
 
-###
+### - Creating an AWS account or using the existing AWS account to setup the Cloud9 environment (AWS IDE)
+### - Installing the dependent file in the folder application and scripts and and enter the AWS region of your choice
+### - Next step is provisioning the neptune database as mentioned above. For this project, we have used the following version of Amazon Neptune 1.0.2.2.R4 (Keep the rest of the setting as default)
+### - While your database is provisioning, you can create a security group for your Lambda function. AWS Lambda is a serverless computing service from AWS where you upload code that is executed when certain events happen. You don't need to worry about server provisioning or management -- your code execution is handled entirely for you. We will be naming the security group as - recommendation lambda for simplicity
+### - Next in In the list of security groups, find your recommendations-lambda security group. Get the value of the Group ID (starts with sg-).In your Cloud9 terminal, run the echo command to provision that groupid value
+### - Now you need to configure your Neptune database so that both your Cloud9 development environment and your AWS Lambda function can access it.In the Neptune database instance details, the Connectivity & security section shows the security groups configured for your database. Choose the security group name to open it and configure the inbound rules for allowing access from cloud 9 and lambda function
+### - We again run the echo command in cloud9 to export the neptune endpoint. Now you can access to neptune via cloud9
+### - We created a javascript to fetch user interest using gremlin's query language, it is stored with the name findUserInterests.js
+### - We created another script findFriendsOfFriends.js, the script generates user-specific recommendations of other users they should follow.
+### - In the next script findFriendsWithInterests.js, the logic in the code works on generating recommendations for users that aren’t following any users yet
+
